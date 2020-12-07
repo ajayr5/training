@@ -5,7 +5,7 @@ node {
   }
 
   stage('Create Docker Image') {
-      docker.build("ajayr5/dry-run:$GIT_COMMIT
+      docker.build("ajayr5/dry-run:$GIT_COMMIT")
   }
 
   
