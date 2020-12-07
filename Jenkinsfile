@@ -5,13 +5,13 @@ node {
   }
 
   stage('Create Docker Image') {
-      docker.build("ajayr5/dry-run:${env.BUILD_NUMBER}")
+      docker.build("ajayr5/dry-run:$GIT_COMMIT
   }
 
   
   stage('Push Docker Image') {
          withDockerRegistry(credentialsId: 'docker', url: '') {
-         sh "docker push ajayr5/dry-run:${env.BUILD_NUMBER} "
+         sh "docker push ajayr5/dry-run:$GIT_COMMIT "
          
        }
     }
@@ -20,7 +20,7 @@ node {
         curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
         mv kustomize /usr/local/bin/
         cd deployment/dev/
-        kustomize edit set image 'ajayr5/dry-run:${env.BUILD_NUMBER}'
+        kustomize edit set image ajayr5/dry-run:$GIT_COMMIT
         git add .
         git commit -m "updating dev image tag in kustomization file"
         git push https://ajayr5:78Q6wa3s0%@github.com/ajayr5/training.git main
