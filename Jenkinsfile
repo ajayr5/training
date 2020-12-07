@@ -25,7 +25,7 @@ node {
         git commit -m "updating dev image tag in kustomization file"
         git push https://ajayr5:78Q6wa3s0%@github.com/ajayr5/training.git main
         '''
-      }
+      
     }
   }
 }
