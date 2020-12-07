@@ -4,9 +4,8 @@ WORKROOT=$(pwd)
 cd ${WORKROOT}
 
 # unzip go environment
-go_env="go1.6.2.linux-amd64.tar.gz"
-wget -c http://path/to/go/go1.6.2.linux-amd64.tar.gz
-tar -zxf $go_env
+curl -O https://dl.google.com/go/go1.10.3.linux-amd64.tar.gz
+tar xvf go1.10.3.linux-amd64.tar.gz
 if [ $? -ne 0 ];
 then
     echo "fail in extract go"
