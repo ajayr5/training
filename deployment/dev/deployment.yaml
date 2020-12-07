@@ -15,7 +15,7 @@ spec:
         app: gitops-webapp
     spec:
       containers:
-      - image: registry.gitlab.com/andrew.kaczynski/gitops-webapp:1.0
+      - image: ajayr5/dry-run
         name: gitops-webapp
         imagePullPolicy: Always
         ports:
