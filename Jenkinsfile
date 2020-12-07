@@ -16,7 +16,6 @@ node {
        }
     }
   stage('Update Manifests') {
-      steps {
         sh '''
         curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
         mv kustomize /usr/local/bin/
@@ -25,7 +24,7 @@ node {
         git add .
         git commit -m "updating dev image tag in kustomization file"
         git push https://ajayr5:78Q6wa3s0%@github.com/ajayr5/training.git main
-        '''      
-    }
+        ''' 
+    
   }
 }
